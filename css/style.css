@@ -54,10 +54,10 @@
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 60.5%;
     scroll-behavior: smooth;
     scroll-padding-top: 8.5rem;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 body {
@@ -66,7 +66,7 @@ body {
     font-family: var(--font-body);
     font-size: 1.5rem;
     line-height: 1.6;
-    overflow-x: hidden;
+    overflow-x: clip;
 }
 
 section {
@@ -229,12 +229,14 @@ img {
    ========================================================================== */
 
 .header {
+    position: -webkit-sticky;
     position: sticky;
     top: 0;
     left: 0;
     right: 0;
+    width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     display: flex;
@@ -248,7 +250,8 @@ img {
 
 .header.active {
     padding: 1.1rem 8%;
-    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.08);
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.1);
 }
 
 .header .logo {
