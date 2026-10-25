@@ -35,8 +35,6 @@
 
     <!-- Header Section Starts -->
     <header class="header">
-        <div id="menu-btn" class="fa-solid fa-bars"></div>
-
         <a href="index.html" class="logo">
             <div class="logo-badge"><i class="fa-solid fa-crown"></i></div>
             <div class="logo-text">
@@ -45,22 +43,35 @@
             </div>
         </a>
 
-        <nav class="navbar">
+        <nav class="navbar" id="main-nav">
             <a href="index.html">Home</a>
             <a href="index.html#vehicles">Inventory</a>
             <a href="index.html#services">Services</a>
             <a href="index.html#featured">The Luxury Vault</a>
             <a href="index.html#reviews">Testimonials</a>
             <a href="index.html#contact">Contact</a>
+
+            <!-- Mobile & Tablet Menu Drawer Actions -->
+            <div class="nav-drawer-actions">
+                <a href="index.html#vehicles" class="btn btn-nav-drawer">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Showroom
+                </a>
+                <div class="nav-drawer-contact">
+                    <a href="tel:+919283184797"><i class="fa-solid fa-phone"></i> +91 92831 84797</a>
+                    <span><i class="fa-solid fa-clock"></i> 9:00 AM – 9:00 PM</span>
+                </div>
+            </div>
         </nav>
 
         <div class="header-actions">
-            <a href="index.html#vehicles" class="btn btn-secondary" style="padding: 0.85rem 2rem; font-size: 1.35rem;">
-                <i class="fa-solid fa-arrow-left"></i> Back to Showroom
+            <a href="index.html#vehicles" class="btn btn-secondary btn-header-cta" title="Back to Showroom">
+                <i class="fa-solid fa-arrow-left"></i> <span class="btn-cta-text">Back to Showroom</span>
             </a>
+            <div id="menu-btn" class="fa-solid fa-bars" aria-label="Toggle Navigation Menu"></div>
         </div>
     </header>
     <!-- Header Section Ends -->
+    <div class="navbar-backdrop" id="nav-backdrop"></div>
 
     <!-- Appointment Section Starts -->
     <section class="appointment-section">

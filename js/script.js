@@ -31,21 +31,71 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3600);
     }
 
-    // --- Mobile Menu Toggle ---
+    // --- Mobile & Tablet Menu Controls ---
     const menuBtn = document.querySelector('#menu-btn');
     const navbar = document.querySelector('.navbar');
+    const navBackdrop = document.querySelector('#nav-backdrop');
+    const navLinks = document.querySelectorAll('.header .navbar a');
+
+    function openMobileMenu() {
+        if (menuBtn && navbar) {
+            menuBtn.classList.remove('fa-bars');
+            menuBtn.classList.add('fa-xmark');
+            navbar.classList.add('active');
+            if (navBackdrop) navBackdrop.classList.add('active');
+        }
+    }
+
+    function closeMobileMenu() {
+        if (menuBtn && navbar) {
+            menuBtn.classList.add('fa-bars');
+            menuBtn.classList.remove('fa-xmark');
+            navbar.classList.remove('active');
+            if (navBackdrop) navBackdrop.classList.remove('active');
+        }
+    }
 
     if (menuBtn && navbar) {
-        menuBtn.onclick = () => {
-            menuBtn.classList.toggle('fa-xmark');
-            navbar.classList.toggle('active');
-        };
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (navbar.classList.contains('active')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
     }
+
+    if (navBackdrop) {
+        navBackdrop.addEventListener('click', closeMobileMenu);
+    }
+
+    // Close mobile menu when clicking any nav link
+    navLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+            closeMobileMenu();
+        });
+    });
+
+    // Close when clicking outside header & navbar
+    document.addEventListener('click', (e) => {
+        if (navbar && navbar.classList.contains('active')) {
+            if (!navbar.contains(e.target) && (!menuBtn || !menuBtn.contains(e.target))) {
+                closeMobileMenu();
+            }
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeMobileMenu();
+        }
+    });
 
     // --- Header Scroll Effect & ScrollSpy ---
     const header = document.querySelector('.header') || document.querySelector('header');
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.header .navbar a');
 
     window.addEventListener('scroll', () => {
         const scrollY = window.pageYOffset;
@@ -57,12 +107,6 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 header.classList.remove('active');
             }
-        }
-
-        // Close mobile navbar on scroll
-        if (menuBtn && navbar) {
-            menuBtn.classList.remove('fa-xmark');
-            navbar.classList.remove('active');
         }
 
         // ScrollSpy Active Link Tracking

@@ -1,16 +1,60 @@
 // Dream Cars - Book Appointment Functionality
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Mobile menu toggle
+    // Mobile menu toggle & backdrop
     const menuBtn = document.querySelector('#menu-btn');
     const navbar = document.querySelector('.navbar');
+    const navBackdrop = document.querySelector('#nav-backdrop');
+    const navLinks = document.querySelectorAll('.header .navbar a');
+
+    function openMobileMenu() {
+        if (menuBtn && navbar) {
+            menuBtn.classList.remove('fa-bars');
+            menuBtn.classList.add('fa-xmark');
+            navbar.classList.add('active');
+            if (navBackdrop) navBackdrop.classList.add('active');
+        }
+    }
+
+    function closeMobileMenu() {
+        if (menuBtn && navbar) {
+            menuBtn.classList.add('fa-bars');
+            menuBtn.classList.remove('fa-xmark');
+            navbar.classList.remove('active');
+            if (navBackdrop) navBackdrop.classList.remove('active');
+        }
+    }
 
     if (menuBtn && navbar) {
-        menuBtn.onclick = () => {
-            menuBtn.classList.toggle('fa-xmark');
-            navbar.classList.toggle('active');
-        };
+        menuBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (navbar.classList.contains('active')) {
+                closeMobileMenu();
+            } else {
+                openMobileMenu();
+            }
+        });
     }
+
+    if (navBackdrop) {
+        navBackdrop.addEventListener('click', closeMobileMenu);
+    }
+
+    navLinks.forEach((link) => {
+        link.addEventListener('click', closeMobileMenu);
+    });
+
+    document.addEventListener('click', (e) => {
+        if (navbar && navbar.classList.contains('active')) {
+            if (!navbar.contains(e.target) && (!menuBtn || !menuBtn.contains(e.target))) {
+                closeMobileMenu();
+            }
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMobileMenu();
+    });
 
     // Set minimum date to today for appointment
     const dateInput = document.querySelector('#appointment-date');

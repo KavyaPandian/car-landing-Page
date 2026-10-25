@@ -34,8 +34,6 @@
 
     <!-- Header Section Starts -->
     <header class="header">
-        <div id="menu-btn" class="fa-solid fa-bars"></div>
-
         <a href="index.html" class="logo">
             <div class="logo-badge"><i class="fa-solid fa-crown"></i></div>
             <div class="logo-text">
@@ -45,7 +43,7 @@
         </a>
 
         <!-- Navbar Section -->
-        <nav class="navbar">
+        <nav class="navbar" id="main-nav">
             <a href="#home">Home</a>
             <a href="#vehicles">Inventory</a>
             <a href="#services">Services</a>
@@ -53,27 +51,41 @@
             <a href="#featured">The Luxury Vault</a>
             <a href="#reviews">Testimonials</a>
             <a href="#contact">Contact</a>
+
+            <!-- Mobile & Tablet Menu Drawer Actions -->
+            <div class="nav-drawer-actions">
+                <a href="bookappointment.html" class="btn btn-nav-drawer">
+                    <i class="fa-solid fa-calendar-check"></i> Book VIP Test Drive
+                </a>
+                <div class="nav-drawer-contact">
+                    <a href="tel:+919283184797"><i class="fa-solid fa-phone"></i> +91 92831 84797</a>
+                    <span><i class="fa-solid fa-clock"></i> 9:00 AM – 9:00 PM</span>
+                </div>
+            </div>
         </nav>
 
         <!-- Header Actions -->
         <div class="header-actions">
-            <a href="bookappointment.html" class="btn" style="padding: 0.9rem 2.2rem; font-size: 1.35rem;">
-                <i class="fa-solid fa-calendar-check"></i> Book Test Drive
+            <a href="bookappointment.html" class="btn btn-header-cta" title="Book Test Drive">
+                <i class="fa-solid fa-calendar-check"></i> <span class="btn-cta-text">Book Test Drive</span>
             </a>
 
-            <div id="login-btn">
+            <div id="login-btn" title="Client Account">
                 <button class="btn" type="button"><i class="fa-regular fa-user"></i> Login</button>
-                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-user login-icon-btn"></i>
             </div>
 
             <!-- User Info Display -->
             <div id="user-info" class="user-info" style="display: none;">
                 <span class="user-name"></span>
-                <button type="button" class="btn" id="logout-button"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</button>
+                <button type="button" class="btn" id="logout-button" title="Sign Out"><i class="fa-solid fa-arrow-right-from-bracket"></i> <span class="logout-text">Logout</span></button>
             </div>
+
+            <div id="menu-btn" class="fa-solid fa-bars" aria-label="Toggle Navigation Menu"></div>
         </div>
     </header>
     <!-- Header Section Ends -->
+    <div class="navbar-backdrop" id="nav-backdrop"></div>
 
     <!-- Login Modal Container Starts -->
     <div class="login-form-container">
@@ -186,10 +198,10 @@
                             <h3>Volkswagen Polo GT TSI</h3>
                             <div class="price">₹ 8,50,000 <small>• EMI from ₹14,200/mo</small></div>
                             <div class="specs-grid">
-                                <div class="spec-item"><i class="fa-solid fa-calendar"></i> 2020 Model</div>
-                                <div class="spec-item"><i class="fa-solid fa-gear"></i> Automatic (DSG)</div>
-                                <div class="spec-item"><i class="fa-solid fa-gas-pump"></i> Petrol Turbo</div>
-                                <div class="spec-item"><i class="fa-solid fa-road"></i> 50,000 km</div>
+                                <div class="spec-item"><i class="fa-solid fa-calendar"></i> <span>2020 Model</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-gear"></i> <span>Automatic (DSG)</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-gas-pump"></i> <span>Petrol Turbo</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-road"></i> <span>50,000 km</span></div>
                             </div>
                             <a href="bookappointment.html?car=POLO" class="btn">
                                 <i class="fa-solid fa-calendar-check"></i> Book Test Drive
@@ -205,10 +217,10 @@
                             <h3>Maruti Suzuki Swift ZXi+</h3>
                             <div class="price">₹ 9,00,000 <small>• EMI from ₹15,100/mo</small></div>
                             <div class="specs-grid">
-                                <div class="spec-item"><i class="fa-solid fa-calendar"></i> 2022 Model</div>
-                                <div class="spec-item"><i class="fa-solid fa-gear"></i> 5-Speed Manual</div>
-                                <div class="spec-item"><i class="fa-solid fa-gas-pump"></i> Petrol DualJet</div>
-                                <div class="spec-item"><i class="fa-solid fa-road"></i> 30,000 km</div>
+                                <div class="spec-item"><i class="fa-solid fa-calendar"></i> <span>2022 Model</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-gear"></i> <span>5-Speed Manual</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-gas-pump"></i> <span>Petrol DualJet</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-road"></i> <span>30,000 km</span></div>
                             </div>
                             <a href="bookappointment.html?car=SWIFT" class="btn">
                                 <i class="fa-solid fa-calendar-check"></i> Book Test Drive
@@ -224,10 +236,10 @@
                             <h3>Hyundai Venue SX (O) Turbo</h3>
                             <div class="price">₹ 15,00,000 <small>• EMI from ₹25,400/mo</small></div>
                             <div class="specs-grid">
-                                <div class="spec-item"><i class="fa-solid fa-calendar"></i> 2023 Model</div>
-                                <div class="spec-item"><i class="fa-solid fa-gear"></i> 6-Speed Manual</div>
-                                <div class="spec-item"><i class="fa-solid fa-gas-pump"></i> Diesel CRDi</div>
-                                <div class="spec-item"><i class="fa-solid fa-road"></i> 50,000 km</div>
+                                <div class="spec-item"><i class="fa-solid fa-calendar"></i> <span>2023 Model</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-gear"></i> <span>6-Speed Manual</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-gas-pump"></i> <span>Diesel CRDi</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-road"></i> <span>50,000 km</span></div>
                             </div>
                             <a href="bookappointment.html?car=VENUE" class="btn">
                                 <i class="fa-solid fa-calendar-check"></i> Book Test Drive
@@ -243,10 +255,10 @@
                             <h3>Renault Kiger RXZ Turbo</h3>
                             <div class="price">₹ 10,00,000 <small>• EMI from ₹16,900/mo</small></div>
                             <div class="specs-grid">
-                                <div class="spec-item"><i class="fa-solid fa-calendar"></i> 2020 Model</div>
-                                <div class="spec-item"><i class="fa-solid fa-gear"></i> Automatic (CVT)</div>
-                                <div class="spec-item"><i class="fa-solid fa-gas-pump"></i> Petrol Turbo</div>
-                                <div class="spec-item"><i class="fa-solid fa-road"></i> 20,000 km</div>
+                                <div class="spec-item"><i class="fa-solid fa-calendar"></i> <span>2020 Model</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-gear"></i> <span>Automatic (CVT)</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-gas-pump"></i> <span>Petrol Turbo</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-road"></i> <span>20,000 km</span></div>
                             </div>
                             <a href="bookappointment.html?car=KIGER" class="btn">
                                 <i class="fa-solid fa-calendar-check"></i> Book Test Drive
@@ -262,10 +274,10 @@
                             <h3>Skoda Rapid 1.0 TSI Style</h3>
                             <div class="price">₹ 8,00,000 <small>• EMI from ₹13,500/mo</small></div>
                             <div class="specs-grid">
-                                <div class="spec-item"><i class="fa-solid fa-calendar"></i> 2018 Model</div>
-                                <div class="spec-item"><i class="fa-solid fa-gear"></i> 6-Speed Manual</div>
-                                <div class="spec-item"><i class="fa-solid fa-gas-pump"></i> Petrol TSI</div>
-                                <div class="spec-item"><i class="fa-solid fa-road"></i> 70,000 km</div>
+                                <div class="spec-item"><i class="fa-solid fa-calendar"></i> <span>2018 Model</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-gear"></i> <span>6-Speed Manual</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-gas-pump"></i> <span>Petrol TSI</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-road"></i> <span>70,000 km</span></div>
                             </div>
                             <a href="bookappointment.html?car=RAPID" class="btn">
                                 <i class="fa-solid fa-calendar-check"></i> Book Test Drive
@@ -281,10 +293,10 @@
                             <h3>Tata Punch Creative Dazzle</h3>
                             <div class="price">₹ 7,50,000 <small>• EMI from ₹12,600/mo</small></div>
                             <div class="specs-grid">
-                                <div class="spec-item"><i class="fa-solid fa-calendar"></i> 2023 Model</div>
-                                <div class="spec-item"><i class="fa-solid fa-gear"></i> 5-Speed Manual</div>
-                                <div class="spec-item"><i class="fa-solid fa-gas-pump"></i> Petrol / iCNG</div>
-                                <div class="spec-item"><i class="fa-solid fa-road"></i> 40,000 km</div>
+                                <div class="spec-item"><i class="fa-solid fa-calendar"></i> <span>2023 Model</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-gear"></i> <span>5-Speed Manual</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-gas-pump"></i> <span>Petrol / iCNG</span></div>
+                                <div class="spec-item"><i class="fa-solid fa-road"></i> <span>40,000 km</span></div>
                             </div>
                             <a href="bookappointment.html?car=PUNCH" class="btn">
                                 <i class="fa-solid fa-calendar-check"></i> Book Test Drive
